@@ -147,7 +147,7 @@ class FileExploreActivity : AppCompatActivity() {
                             newName = newName.substring(0, newName.lastIndexOf('.'))
                         }
                     }
-                    val newPath = "$path/$newName.${file.extension}"
+                    val newPath = "$path/$newName${if (file.extension.isEmpty()) "" else "."}${file.extension}"
                     adapter.renameItem(item.groupId, newPath)
                 }
                 }.setNegativeButton("Cancel") {dialog, _ -> dialog.cancel()}
